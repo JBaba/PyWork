@@ -1,0 +1,11 @@
+<!-- Think this as class extending another class -->
+{% extends "personal/header.html" %}
+
+
+<!-- And this whatever we write inside this to tag will be replaced in original header file -->
+{% block content %}
+	<h3>{{post.title}}</h3>
+	<h6>on {{post.date}}</h6>
+	<!-- safe allows you to diplay html tags or else it will print html tags as text on web page -->
+	{{post.body|safe|linebreaks}}
+{% endblock %}

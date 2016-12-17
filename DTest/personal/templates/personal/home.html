@@ -1,0 +1,11 @@
+<!-- Think this as class extending another class -->
+{% extends "personal/header.html" %}
+
+
+<!-- And this whatever we write inside this to tag will be replaced in original header file -->
+{% block content %}
+<p>Hey , I am naimish!</p>
+
+{% include "personal/includes/htmlsnippet.html" %}
+
+{% endblock %}
