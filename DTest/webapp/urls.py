@@ -3,7 +3,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index')
+    url(r'^$', views.login, name='login'),
 ]
 """ Here we are calling method 'index' which is located inside 'views.py' file """
 """ We can not write comments inside list """
