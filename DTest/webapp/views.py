@@ -7,4 +7,12 @@ def index(request):
 def login(request):
 	return render(request,'webapp/login.html')
 
-# Create your views here.
+def dologin(request):
+	print('i am in do login')
+	print(request.method)
+	print(request.POST)
+	
+	for key, value in request.POST.iteritems():
+		print(key , value)
+	
+	return render(request,'webapp/login.html',{})
