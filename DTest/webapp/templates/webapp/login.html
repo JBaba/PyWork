@@ -24,9 +24,8 @@
 		</div>
 		<form action="/login/" method="post">
 			{% csrf_token %}
-			{{form}}
-			<input type="text" id="USERNAME" class="text" value="USERNAME" >
-			<input type="password" id="Password" value="Password" >
+			<input type="text" id="USERNAME" name="USERNAME" class="text" value="USERNAME" >
+			<input type="password" id="Password" value="Password" name="Password" >
 			<div class="submit">
 				<input type="submit" onclick="myFunction()" value="LOGIN">
 			</div>	
