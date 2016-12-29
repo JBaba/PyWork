@@ -24,6 +24,7 @@
 		</div>
 		<form action="/login/" method="post">
 			{% csrf_token %}
+			<label style="font-style: italic;color: red;">{{error_msg}}</label>
 			<input type="text" id="USERNAME" name="USERNAME" class="text" value="USERNAME" >
 			<input type="password" id="Password" value="Password" name="Password" >
 			<div class="submit">

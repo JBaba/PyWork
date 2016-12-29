@@ -14,6 +14,7 @@ class UserBo:
         loginUser.password = request.POST.get('Password')
         loginUser.date = str(datetime.now())
         loginUser.save()
+        print loginUser , " has been created."
         
     """ return true is any user exits in database if not then return false """
     def isAnyUserExits(self):
@@ -21,3 +22,14 @@ class UserBo:
    
     def printNoOfUsersExits(self):
         print "No of user in database : " , User.objects.all().__len__() 
+        
+    def isValidUser(self,__user,__pass):
+        listOfUsers = User.objects.filter(username=__user)
+        if listOfUsers.__len__() != 0 :
+            user = listOfUsers[0]
+            if (user.username == __user) & (user.password == __pass):
+                return True
+            else:
+                return False
+        else:
+            return False

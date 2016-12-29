@@ -16,10 +16,17 @@ def dologin(request):
 		print('Login Username : ',request.POST.get('USERNAME'))
 		userBo = UserBo()
 		userBo.printNoOfUsersExits()
-		if userBo.isAnyUserExits() :
+		if not userBo.isAnyUserExits() :
 			userBo.createUser(request)
+		
+		if userBo.isValidUser(request.POST.get('USERNAME'), request.POST.get('Password')):
+			print "Valid User"
+			return render(request,'webapp/login.html',{'error_msg':'Valid User'})
+		else:
+			print "Not Valid User"
+			return render(request,'webapp/login.html',{'error_msg':'Not Valid User'})	
 	
-	return render(request,'webapp/login.html')
+	
 
 
 def dologinWithForms(request):
