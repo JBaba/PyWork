@@ -4,12 +4,16 @@ from webapp.forms.login import submitLogin
 from django.http.response import HttpResponseRedirect
 from .models import User
 from webapp.bo.userBo import UserBo
+from django.template.context_processors import request
 
 def index(request):
 	return HttpResponse("<h2>Hi There!</h2>")
 
 def login(request):
 	return render(request,'webapp/login.html')
+
+def pageSignup(request):
+	return render(request,'webapp/signup.html')
 
 def dologin(request):
 	if request.method == 'POST':
@@ -26,8 +30,14 @@ def dologin(request):
 			print "Not Valid User"
 			return render(request,'webapp/login.html',{'error_msg':'Not Valid User'})	
 	
-	
-
+def add_user(request):	
+	userBo = UserBo()
+	if request.method == 'POST':
+		if userBo.isUserExits(request.POST.get('USERNAME')) :
+			return render(request,'webapp/signup.html',{'error_msg':'User already exits'})	
+		else:
+			userBo.createUser(request)
+			return render(request,'webapp/signup.html',{'error_msg':'User has been created'})	
 
 def dologinWithForms(request):
 	print('i am in do login')

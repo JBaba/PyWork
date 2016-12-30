@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Login</title>
+		
+		<!-- This loads static files -->
+		{% load staticfiles %}
+		
+		<meta charset="utf-8">
+		<link href="{% static 'webapp/css/Style.css' %}" rel="stylesheet" type="text/css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--webfonts-->
+		<link href="//fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700" rel="stylesheet" type="text/css">
+		<!--//webfonts-->
+	</head>
+<body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	 <!-----start-main---->
+	 <div class="main">
+	 <!---728x90--->
+	<div class="login-form">
+	<h1>Sign Up</h1>
+		<div class="head">
+			<img src="{% static 'webapp/images/user.png' %}" alt="">
+		</div>
+		<form action="/add_user/" method="post">
+			{% csrf_token %}
+			<label style="font-style: italic;color: red;">{{error_msg}}</label>
+			<input type="text" id="USERNAME" name="USERNAME" class="text" value="USERNAME" >
+			<input type="password" id="Password" value="Password" name="Password" >
+			<div class="submit">
+				<input type="submit" onclick="myFunction()" value="Create User">
+			</div>	
+			<p><a href="/">Login</a></p>
+		</form>
+		</div>
+	</div>
+</body>
+</html>

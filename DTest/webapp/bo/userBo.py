@@ -33,3 +33,10 @@ class UserBo:
                 return False
         else:
             return False
+        
+    def isUserExits(self,__user):
+        listOfUsers = User.objects.filter(username=__user)
+        if listOfUsers.__len__() != 0 :
+            return True
+        else:
+            return False
