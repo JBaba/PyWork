@@ -30,7 +30,7 @@ def dologin(request):
 			print "Not Valid User"
 			return render(request,'webapp/login.html',{'error_msg':'Not Valid User'})	
 	
-def add_user(request):	
+def addUser(request):	
 	userBo = UserBo()
 	if request.method == 'POST':
 		if userBo.isUserExits(request.POST.get('USERNAME')) :
